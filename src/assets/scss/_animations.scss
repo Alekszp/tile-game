@@ -1,0 +1,14 @@
+$lime: #00FF00;
+$yellow: yellow;
+
+@keyframes pulsate-text {
+    0% { 
+      color: $lime;
+    }
+    50% { 
+      color: $yellow;
+    }
+    100% { 
+      color: $lime;
+    }
+}

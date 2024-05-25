@@ -1,0 +1,15 @@
+// fonts
+$font-primary: 'Hipstelvetica';
+$font-secondary: 'Monad-Typeface';
+
+// colors
+$error: #EA4335;
+$success: #34A853;
+$white: #ffffff;
+$black: #000000;
+$disabled: lightgrey;
+
+// other
+$tile-side-size: 50px;
+
+$board-size: $tile-side-size $tile-side-size $tile-side-size $tile-side-size $tile-side-size $tile-side-size $tile-side-size $tile-side-size $tile-side-size $tile-side-size;

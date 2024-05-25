@@ -1,0 +1,27 @@
+@font-face {
+    font-family : 'Hipstelvetica';
+    font-style  : normal;
+    src         : url('@/assets/fonts/Hipstelvetica-Font/Hipstelvetica Bold.ttf') format('truetype-variations');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family : 'Hipstelvetica';
+    font-style  : normal;
+    src         : url('@/assets/fonts/Hipstelvetica-Font/Hipstelvetica Light.ttf') format('truetype-variations');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family : 'Hipstelvetica';
+    font-style  : light;
+    src         : url('@/assets/fonts/Hipstelvetica-Font/Hipstelvetica UltraLight.ttf') format('truetype-variations');
+    font-weight: lighter;
+}
+
+@font-face {
+    font-family : 'Monad-Typeface';
+    font-style  : normal;
+    src         : url('@/assets/fonts/Monad-Typeface/Monad.otf') format('truetype-variations')
+}
+

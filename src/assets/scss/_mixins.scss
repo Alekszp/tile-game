@@ -1,0 +1,4 @@
+@mixin opacity-background-modifier($color, $opacity: 0.5) {
+    background: $color;
+    background: rgba($color, $opacity);
+}
