@@ -8,8 +8,12 @@ $success: #34A853;
 $white: #ffffff;
 $black: #000000;
 $disabled: lightgrey;
+$dark-grey: #161616;
 
 // other
 $tile-side-size: 50px;
+$tile-side-size-mobile: 35px;
+
 
 $board-size: $tile-side-size $tile-side-size $tile-side-size $tile-side-size $tile-side-size $tile-side-size $tile-side-size $tile-side-size $tile-side-size $tile-side-size;
+$board-size-mobile: $tile-side-size-mobile $tile-side-size-mobile $tile-side-size-mobile $tile-side-size-mobile $tile-side-size-mobile $tile-side-size-mobile $tile-side-size-mobile $tile-side-size-mobile $tile-side-size-mobile $tile-side-size-mobile;
