@@ -247,7 +247,7 @@ const clickOnTile = (id) => {
       .error {
         font-size: 10px;
         color: $error;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: $font-error;
       }
     }
 
