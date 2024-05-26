@@ -27,14 +27,6 @@
         />
       </div>
 
-      <!-- <div class="game-canvas__start">
-        <button
-          @click="startGame"
-          :disabled="!isStartAvailable || isGameStart"
-          :title="buttonTitle"
-        >{{  isSomebodyWin ? 're': '' }}start</button>
-      </div> -->
-
       <div class="game-canvas__score">
         <b>score:</b> player <b>{{ playerScore }}</b> / computer
         <b>{{ computerScore }}</b>
