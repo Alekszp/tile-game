@@ -13,17 +13,17 @@
             :min="0"
             :disabled="isGameStart"
           />
-          <label for="timeDelay">ms</label>
+          <span for="timeDelay">ms</span>
         </div>
         <span class="error">{{ error }}</span>
       </div>
 
       <div class="game-canvas__start">
         <BaseButton
-          @onclick="startGame"
           :disabled="!isStartAvailable || isGameStart"
           :title="buttonTitle"
           :text="isSomebodyWin ? 'restart' : 'start'"
+          @onclick="startGame"
         />
       </div>
 
@@ -61,10 +61,10 @@
       <template v-slot:actions>
         <div class="modal__actions">
           <BaseButton
-            @onclick="isModal = false"
             :disabled="!isStartAvailable || isGameStart"
             :title="buttonTitle"
             text="ok"
+            @onclick="isModal = false"
           />
         </div>
       </template>
@@ -73,8 +73,8 @@
 </template>
 
 <script setup>
-import { Factory as TileFactory, DefaultTile } from "@/helpers/tileFactory";
-import tileTypes from "@/const/tileTypes";
+import TileFactory from "@/helpers/tileFactory";
+import tileTypes from "@/constants/tileTypes";
 import { ref, reactive, onMounted, computed, watch } from "vue";
 
 import Modal from "@/components/Modal.vue";
@@ -105,7 +105,12 @@ const isSomebodyWin = computed(() => {
   return playerScore.value === 10 || computerScore.value === 10;
 });
 const gameWidth = computed(() => {
-  if ((playerScore.value === 0 && computerScore.value === 0 && !isGameStart.value) || isSomebodyWin.value) {
+  if (
+    (playerScore.value === 0 &&
+      computerScore.value === 0 &&
+      !isGameStart.value) ||
+    isSomebodyWin.value
+  ) {
     const width = `${boardContainer.value?.clientWidth}px`;
     return { width };
   }
@@ -113,14 +118,14 @@ const gameWidth = computed(() => {
 
 watch(playerScore, () => {
   if (playerScore.value === 10) {
-    stop();
+    stopGame();
     isGameStart.value = false;
     isModal.value = true;
   }
 });
 watch(computerScore, () => {
   if (computerScore.value === 10) {
-    stop();
+    stopGame();
     isGameStart.value = false;
     isModal.value = true;
     board[getLastSetValue(gameUsedIndexes)].setTileType = tileTypes.DEFAULT;
@@ -165,7 +170,8 @@ const intervalAction = () => {
   const newIndex = addRandomTileIndex();
   board[newIndex].setTileType = tileTypes.PLAYING;
   const gameUsedIndexesArray = Array.from(gameUsedIndexes);
-  const penultimateIndex = gameUsedIndexesArray[gameUsedIndexesArray.length - 2];
+  const penultimateIndex =
+    gameUsedIndexesArray[gameUsedIndexesArray.length - 2];
 
   if (board[penultimateIndex].getTileType !== tileTypes.SUCCESS) {
     board[penultimateIndex].setTileType = tileTypes.LOSE;
@@ -174,7 +180,7 @@ const intervalAction = () => {
 };
 
 const resetBoard = () => {
-  board = reactive([]);
+  board.length = 0;
   gameUsedIndexes.clear();
   createBoard();
   playerScore.value = 0;
@@ -192,7 +198,7 @@ const startGame = () => {
   gameId = setInterval(intervalAction, timeDelay.value);
 };
 
-const stop = () => {
+const stopGame = () => {
   clearInterval(gameId);
 };
 
@@ -262,7 +268,7 @@ const clickOnTile = (id) => {
         border-radius: unset;
       }
 
-      label {
+      label, span {
         font-family: $font-secondary;
         margin-right: 10px;
       }
@@ -290,10 +296,10 @@ const clickOnTile = (id) => {
         ". . . . . . . . . ."
         ". . . . . . . . . .";
 
-        @media only screen and (max-width: 420px) {
-          grid-template-columns: $board-size-mobile;
-          grid-template-rows: $board-size-mobile;
-        }
+      @media only screen and (max-width: 420px) {
+        grid-template-columns: $board-size-mobile;
+        grid-template-rows: $board-size-mobile;
+      }
     }
 
     &__tile {

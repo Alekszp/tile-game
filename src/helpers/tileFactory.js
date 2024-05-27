@@ -1,9 +1,9 @@
 
 import { v4 as uuidv4 } from 'uuid';
-import tileTypes from "@/const/tileTypes"
-import tileTypeColors from "@/const/tileTypeColors"
+import tileTypes from "@/constants/tileTypes"
+import tileTypeColors from "@/constants/tileTypeColors"
 
-export class DefaultTile {
+class DefaultTile {
     constructor(type) {
         this.color = tileTypeColors[type]
         this.type = tileTypes[type]
@@ -19,7 +19,7 @@ export class DefaultTile {
     }
 }
 
-export class Factory {
+export default class TileFactory {
     constructor() {
         this.createInstance = function (type) {
             let tile = new DefaultTile(type)
