@@ -74,6 +74,7 @@
 
 <script setup>
 import TileFactory from "@/helpers/tileFactory";
+import randomizeNumber from "@/helpers/randomize";
 import tileTypes from "@/constants/tileTypes";
 import { ref, reactive, onMounted, computed, watch } from "vue";
 
@@ -145,13 +146,6 @@ const createBoard = () => {
 
 const scrollToBoard = () => {
   boardContainer.value.scrollIntoView({ behavior: "smooth" });
-};
-
-const randomizeNumber = () => {
-  const min = 0;
-  const max = 100;
-
-  return Math.floor(Math.random() * (max - min)) + min;
 };
 
 const addRandomTileIndex = () => {
